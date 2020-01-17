@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/2000/svg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <title>Audio</title>
+</head>
+<body>
+  <img src="background.jpg" alt="background" class="invis">
+  <div class="overlay"></div>
+  <section class="soundcloud noselect">
+    <a href="https://soundcloud.com/">
+      <img src="https://developers.soundcloud.com/assets/powered_by_large_white-9c2af6a93ad2b1c541f423d9e9045980.png" alt="Powered by Soundcloud">
+    </a>
+  </section>
+  <section class="info">
+    <span class="artist">M.E</span>
+    <br>
+    <span class="title">Bitter Sweet Love</span>
+  </section>
+  <section class="search">
+    <form  method="get">
+      <!-- action="https://soundcloud.com/search" -->
+      <label for="q">Search</label>
+      <input type="text" name="q" id="q" required minlength="1" autocomplete="off">
+      <button type="submit">
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </section>
+  <section class="controls">
+
+    <div class="time">
+      <span class="elapsed">0:00</span>
+      <span class="line"></span>
+      <span class="duration">0:00</span>
+    </div>
+    <div class="slider">  
+      <div class="bar">
+        <div class="passed"></div>
+        <div class="handle"></div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="skip-back">
+        <svg viewBox="0 0 24 24">
+          <polygon points="19 20 9 12 19 4 19 20"></polygon>
+          <line x1="5" y1="19" x2="5" y2="5"></line>
+        </svg>
+      </button>
+      <button class="rewind">
+        <svg viewBox="0 0 26 24">
+          <polygon points="11 19 2 12 11 5 11 19"></polygon>
+          <polygon points="22 19 13 12 22 5 22 19"></polygon>
+        </svg>
+      </button>
+      <button class="playpause">
+        <svg viewBox="0 0 21 24">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </button>
+      <button class="fast-forward">
+        <svg viewBox="0 0 22 24">
+          <polygon points="13 19 22 12 13 5 13 19"></polygon>
+          <polygon points="2 19 11 12 2 5 2 19"></polygon>
+        </svg>
+      </button>
+      <button class="skip-forward">
+        <svg viewBox="0 0 24 24">
+          <polygon points="5 4 15 12 5 20 5 4"></polygon>
+          <line x1="19" y1="5" x2="19" y2="19"></line>
+        </svg>
+      </button>
+    </div>
+  </section>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/612009063"></iframe>
+  <script src="init.js"></script>
+  <script src="colourManipulation.js"></script>
+  <script src="averageColour.js"></script>
+  <script src="app.js"></script>
+  <script src="slider.js"></script>
+</body>
+</html>
