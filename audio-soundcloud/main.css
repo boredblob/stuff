@@ -263,3 +263,12 @@ body {
         -ms-user-select: none;
             user-select: none;
 }
+
+.widget {
+  border: 0;
+  border: none;
+  z-index: -100;
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+}

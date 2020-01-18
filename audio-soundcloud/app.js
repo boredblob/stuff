@@ -7,10 +7,6 @@ document.body.style.setProperty("--primary-saturation", primaryS + "%");
 document.body.style.setProperty("--primary-lightness", primaryL + "%");
 
 
-const timeDisplay = document.querySelector(".controls .time");
-const elapsed = timeDisplay.querySelector(".elapsed");
-const duration = timeDisplay.querySelector(".duration");
-
 function init() {
   const buttons = document.querySelector(".buttons");
 

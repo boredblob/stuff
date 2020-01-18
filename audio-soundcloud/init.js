@@ -11,6 +11,10 @@ const widget = SC.Widget(iframe);
 const artist = document.querySelector(".info .artist");
 const title = document.querySelector(".info .title");
 
+const timeDisplay = document.querySelector(".controls .time");
+const elapsed = timeDisplay.querySelector(".elapsed");
+const duration = timeDisplay.querySelector(".duration");
+
 
 const player = {
   sound: {},
@@ -59,5 +63,3 @@ function getCurrentTime() {
     widget.getPosition(s=>{resolve(s);});
   });
 }
-
-iframe.style = "width:0; height:0; border:0; border:none; z-axis: -100; position: absolute; display: none;";
