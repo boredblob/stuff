@@ -1,9 +1,11 @@
-export async function loadWidget(trackID = 674187014) {
+export async function loadWidget(trackID = 0) {
   const iframe = document.querySelector(".widget");
-  iframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/" + trackID;
+  iframe.src = "https://w.soundcloud.com/player/?url=";
 
   const loadedWidget = SC.Widget(iframe);
-
+  const url = "https://api.soundcloud.com/tracks/" + trackID;
+  loadedWidget.load(url);
+  
   return await new Promise(resolve => {
     loadedWidget.bind(SC.Widget.Events.READY, () => {
       resolve(loadedWidget);

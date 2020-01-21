@@ -8,27 +8,30 @@ import {loadSlider} from "./slider.mjs";
 import {resetTimePromise, timePromiseValue} from "./timePromiseThings.mjs";
 import {loadSongInfo} from "./songInfo.mjs";
 
-setTheme("background2.jpg");
+
+const trackID = parseInt(new URL(window.location.href).searchParams.get("t"));
 
 async function init() {
-  const widget = await loadWidget();
+  const widget = await loadWidget(trackID);
   const player = await loadPlayer(widget);
-
+  const url = "https://source.unsplash.com/collection/3178572?caching-prevention=" + Math.floor(Math.random()*100000);
+  setTheme(url);
+  
   time.duration.innerHTML = secondsToTime(player.sound.duration);
-
+  
   resetTimePromise(widget);
-
+  
   function update() {
     if (timePromiseValue !== null) {
       player.currentTime = timePromiseValue;
       updateTime(player);
-
+      
       resetTimePromise(widget);
     }    
-  
+    
     if (player.playing) {requestAnimationFrame(update);}
   }
-
+  
   loadSongInfo(player);
   loadButtons(widget, player, update);
   loadSlider(widget, player, update);

@@ -41,6 +41,7 @@ function getAverageColour(img, samples = 256) {
 function getImage(src = "") {
   return new Promise(resolve => {
     const img = document.createElement("img");
+    img.crossOrigin = "Anonymous";
     img.src = src;
     img.onload = () => {
       resolve(img);
@@ -63,5 +64,4 @@ export async function setTheme(imageSource = "") {
 
   document.body.style.background= "url('" + imageSource + "') no-repeat"
   document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundPosition = "center";
 }

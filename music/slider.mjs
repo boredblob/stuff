@@ -87,8 +87,8 @@ export function loadSlider(widget, player, updateFunction) {
     player.currentTime = percentage * player.sound.duration;
     widget.seekTo(player.currentTime);
     updateTime(player);
-    widget.setVolume(100);
-    
+    widget.setVolume(player.volume);
+
     resetTimePromise(widget);
 
     if (player.willResume) {

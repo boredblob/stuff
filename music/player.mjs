@@ -12,6 +12,7 @@ export async function loadPlayer(widget) {
     playing: false,
     currentTime: 0,
     willResume: false,
+    volume: 100,
     play: () => {
       player.playing = true;
       overlay.style.opacity = 0.2;
