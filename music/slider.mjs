@@ -3,13 +3,20 @@ import {updateTime} from "./buttons.mjs";
 import {secondsToTime} from "./timeStuff.mjs";
 import {resetTimePromise} from "./timePromiseThings.mjs";
 
+let events = {
+  move: "pointermove",
+  end: "pointerup",
+  cancel: "pointercancel"
+};
+
+if (!window.PointerEvent) {
+  events.move = "touchmove";
+  events.end = "touchend";
+  events.cancel = "touchcancel";
+}
+
 function Slider(startCallback, moveCallback, endCallback) {
   let startX = 0, currentX = 0, value = 0, percentage = 0;
-  let events = {
-    move: "pointermove",
-    end: "pointerup",
-    cancel: "pointercancel"
-  };
 
   function limitValue(val, low = 0, high = slider.clientWidth) {
     let v = val;
@@ -60,13 +67,10 @@ function Slider(startCallback, moveCallback, endCallback) {
   }
 
   if (window.PointerEvent) {
-    slider.addEventListener('pointerdown', handleDown, true);
+    slider.onpointerdown = handleDown;
   } else {
-    slider.addEventListener('touchstart', handleDown, true);
-    events.move = "touchmove";
-    events.end = "touchend";
-    events.cancel = "touchcancel";
-    slider.addEventListener('mousedown', handleDown, true);
+    slider.ontouchstart = handleDown;
+    slider.onmousedown = handleDown;
   }
 }
 

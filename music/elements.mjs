@@ -5,8 +5,9 @@ export const svgs = {
 
 export const overlay = document.querySelector(".overlay");
 
-export const artist = document.querySelector(".info .artist");
-export const title = document.querySelector(".info .title");
+export const info = document.querySelector(".info")
+export const artist = info.querySelector(".artist");
+export const title = info.querySelector(".title");
 
 export const slider = document.querySelector(".slider");
 export const bar = document.querySelector(".slider .passed");

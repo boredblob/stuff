@@ -1,14 +1,12 @@
-import {buttons, svgs, time, bar} from "./elements.mjs";
+import {buttons, time, bar} from "./elements.mjs";
 import {secondsToTime} from "./timeStuff.mjs";
 
 export function loadButtons(widget, player, updateFunction) {
   function playpause() {
     if (player.playing) {
       player.pause();
-      buttons.playpause.innerHTML = svgs.play;
     } else {
       player.play();
-      buttons.playpause.innerHTML = svgs.pause;
       requestAnimationFrame(updateFunction);
     }
   }
@@ -26,11 +24,17 @@ export function loadButtons(widget, player, updateFunction) {
   }
 
   function skip_back() {
-    widget.prev();
+    if (player.soundIndex > 0) {
+      widget.prev();
+      refreshInfo(player);
+    } else {
+      widget.seekTo(0);
+    }
   }
 
   function skip_forward() {
-    widget.next()
+    widget.next();
+    refreshInfo(player);
   }
 
   buttons.playpause.onclick = playpause;
@@ -66,4 +70,10 @@ export function updateTime(player) {
 
   const boundPercentageDone = Math.max(Math.min((player.currentTime / player.sound.duration), 1), 0);
   bar.style.width = boundPercentageDone * 100 + "%";
+}
+
+export function refreshInfo(player) {
+  player.playing = false;
+  const refreshInfoEvent = new Event("refreshinfo");
+  document.dispatchEvent(refreshInfoEvent);
 }
