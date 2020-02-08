@@ -62,6 +62,6 @@ export async function setTheme(imageSource = "") {
   document.body.style.setProperty("--primary-saturation", primaryS + "%");
   document.body.style.setProperty("--primary-lightness", primaryL + "%");
 
-  document.body.style.background = "url('" + imageSource + "') no-repeat"
+  document.body.style.background= "url('" + imageSource + "') no-repeat"
   document.body.style.backgroundSize = "cover";
 }

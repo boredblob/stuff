@@ -1,5 +1,6 @@
 import {overlay} from "./elements.mjs";
 import {svgs, buttons} from "./elements.mjs";
+import {setMediaSessionState} from "./mediaData.mjs";
 
 export async function loadPlayer(widget) {
   function getCurrentSound() {
@@ -32,12 +33,14 @@ export async function loadPlayer(widget) {
       player.playing = true;
       overlay.style.opacity = 0.2;
       buttons.playpause.innerHTML = svgs.pause;
+      setMediaSessionState("playing");
       widget.play();
     },
     pause: () => {
       player.playing = false;
       overlay.style.opacity = 0.6;
       buttons.playpause.innerHTML = svgs.play;
+      setMediaSessionState("paused");
       widget.pause();
     }
   };

@@ -1,5 +1,6 @@
 import {buttons, time, bar} from "./elements.mjs";
 import {secondsToTime} from "./timeStuff.mjs";
+import {canUseMediaSession} from "./mediaData.mjs";
 
 export function loadButtons(widget, player, updateFunction) {
   function playpause() {
@@ -61,6 +62,15 @@ export function loadButtons(widget, player, updateFunction) {
       default:
         break;
     }
+  }
+
+  if (canUseMediaSession) {
+    navigator.mediaSession.setActionHandler('play', playpause);
+    navigator.mediaSession.setActionHandler('pause', playpause);
+    navigator.mediaSession.setActionHandler('seekbackward', rewind);
+    navigator.mediaSession.setActionHandler('seekforward', fast_forward);
+    navigator.mediaSession.setActionHandler('previoustrack', skip_back);
+    navigator.mediaSession.setActionHandler('nexttrack', skip_forward);
   }
 }
 
