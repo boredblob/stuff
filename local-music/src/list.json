@@ -1,0 +1,27 @@
+[
+  {
+    "src": "./src/BVG - in the morning.wav",
+    "artist": "BVG",
+    "title": "in the morning"
+  },
+  {
+    "src": "./src/lost souls - MASTER.wav",
+    "artist": "w00ds",
+    "title": "lost souls"
+  },
+  {
+    "src": "./src/Kayou. - you still mean the world to me.mp3",
+    "artist": "Kayou.",
+    "title": "you still mean the world to me"
+  },
+  {
+    "src": "./src/Kayou. - it was only an autumn tale.mp3",
+    "artist": "Kayou.",
+    "title": "it was only an autumn tale"
+  },
+  {
+    "src": "./src/Lana del Rey - Yes To Heaven _NEW_.mp3",
+    "artist": "Lana del Rey.",
+    "title": "Yes To Heaven"
+  }
+]
